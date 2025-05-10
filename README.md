@@ -2,6 +2,14 @@
 
 This repository contains a simulation setup for a custom robot in Gazebo using SLAM Toolbox, Nav2, and RViz2. The robot can be launched into different worlds, build maps using SLAM, and navigate using Nav2.
 
+## Robot Description
+
+The robot is a differential drive mobile platform with two rear wheels and one omnidirectional front wheel for passive balancing. It is equipped with the following sensors:
+
+- A 2D LiDAR for mapping and obstacle detection
+- An RGB camera for visual information
+- A depth camera for 3D perception and distance estimation
+
 ## Project Structure
 
 - `config/` — Configuration files for SLAM, controllers, RViz, and navigation.
