@@ -1,1 +1,0 @@
-Invoking command in '/home/kotosham/ros2_ws/src/ar_project/build/ar_project': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kotosham/ros2_ws/src/install/object_tracking:/opt/ros/humble /usr/bin/cmake /home/kotosham/ros2_ws/src/ar_project -DCMAKE_INSTALL_PREFIX=/home/kotosham/ros2_ws/src/ar_project/install/ar_project
