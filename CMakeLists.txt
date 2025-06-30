@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.8)
 project(ar_project)
 
 # Default to C99
@@ -6,9 +6,9 @@ if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
 endif()
 
-# Default to C++14
+# Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 17)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -36,5 +36,11 @@ install(
   DIRECTORY config description launch worlds
   DESTINATION share/${PROJECT_NAME}
 )
+
+# Установка параметров для ament_index (требуется для Jazzy)
+ament_environment_hooks(env_hook/ar_project.dsv)
+
+# Указываем Python-пакет (новая директива для Jazzy)
+ament_python_install_package(${PROJECT_NAME})
 
 ament_package()
