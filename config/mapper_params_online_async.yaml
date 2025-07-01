@@ -2,7 +2,9 @@ slam_toolbox:
   ros__parameters:
 
     # Plugin params
-    solver_plugin: solver_plugins::CeresSolver
+    solver_plugin: "slam_toolbox::CeresSolver"
+    mapping_plugin: "slam_toolbox::AsyncSlamToolboxPlugin"
+    use_sim_time: true
     ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
     ceres_preconditioner: SCHUR_JACOBI
     ceres_trust_strategy: LEVENBERG_MARQUARDT
