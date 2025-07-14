@@ -25,26 +25,36 @@
     <link name="depth_camera_link_optical"></link>
 
     <gazebo reference="depth_camera_link">
-        <sensor name="depth_camera" type="depth">
+        #<sensor name="depth_camera" type="depth">
+        <sensor name="depth_camera" type="depth_camera">
             <pose>0 0 0 0 0 0</pose>
             <visualize>true</visualize>
             <update_rate>10</update_rate>
             <camera>
                 <horizontal_fov>1.089</horizontal_fov>
                 <image>
-                    <format>B8G8R8</format>
+                    <format>RGB8</format>
                     <width>640</width>
                     <height>480</height>
                 </image>
+                <depth_camera>
+                    <output>depth_points</output>
+                    <format>L_FLOAT32</format>
+                </depth_camera>
                 <clip>
                     <near>0.05</near>
                     <far>8.0</far>
                 </clip>
             </camera>
-            <plugin name="depth_camera_controller" filename="libgazebo_ros_camera.so">
-                <frame_name>camera_link_optical</frame_name>
+            <plugin name="depth_camera_controller" filename="libgz_ros_depth_camera.so">
+                #<frame_name>camera_link_optical</frame_name>
+                <camera_name>depth_camera</camera_name>
+                <frame_id>depth_camera_link_optical</frame_id>
                 <min_depth>0.1</min_depth>
                 <max_depth>100.0</max_depth>
+                <image_topic>color/image_raw</image_topic>  <!-- Топик для цветного изображения -->
+                <depth_image_topic>depth/image_raw</depth_image_topic>  <!-- Топик для глубины -->
+                <points_topic>points</points_topic>
             </plugin>
         </sensor>
         <material>Gazebo/Red</material>
